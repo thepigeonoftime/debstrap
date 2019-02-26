@@ -1,0 +1,41 @@
+####### Name Resolution ########
+
+# Resolve Ethernet MAC address to manufacturer names
+# TRUE or FALSE (case-insensitive)
+nameres.mac_name: FALSE
+
+# Resolve TCP/UDP ports into service names
+# TRUE or FALSE (case-insensitive)
+nameres.transport_name: TRUE
+
+# Resolve IPv4, IPv6, and IPX addresses into host names. The next set of check boxes determines how name resolution should be performed. If no other options are checked name resolution is made from Wireshark's host file, capture file name resolution blocks and DNS packets in the capture.
+# TRUE or FALSE (case-insensitive)
+nameres.network_name: TRUE
+
+# Whether address/name pairs found in captured DNS packets should be used by Wireshark for name resolution.
+# TRUE or FALSE (case-insensitive)
+#nameres.dns_pkt_addr_resolution: TRUE
+
+# Use your system's configured name resolver (usually DNS) to resolve network names. Only applies when network name resolution is enabled.
+# TRUE or FALSE (case-insensitive)
+nameres.use_external_name_resolver: FALSE
+
+# Enable concurrent DNS name resolution. Only applies when network name resolution is enabled. You probably want to enable this.
+# TRUE or FALSE (case-insensitive)
+nameres.concurrent_dns: TRUE
+
+# The maximum number of DNS requests that may be active at any time. A large value (many thousands) might overload the network or make your DNS server behave badly.
+# A decimal number
+#nameres.name_resolve_concurrency: 500
+
+# By default "hosts" files will be loaded from multiple sources. Checking this box only loads the "hosts" in the current profile.
+# TRUE or FALSE (case-insensitive)
+#nameres.hosts_file_handling: FALSE
+
+# You must restart Wireshark for this change to take effect
+# TRUE or FALSE (case-insensitive)
+#nameres.load_smi_modules: FALSE
+
+# Some errors can be ignored. If unsure, set to false.
+# TRUE or FALSE (case-insensitive)
+#nameres.suppress_smi_errors: FALSE
