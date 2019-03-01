@@ -49,6 +49,12 @@ fdir() { find ./ -name $1 -type d }
 fdr() { find / -name $1 -type d }
 fmdir() { find ./ -name \*$1\* -type d }
 
+listtables() { sudo iptables -t nat -L -n -v && sudo iptables -L -v -n | more }
+flushtables() { iptables-restore < /etc/network/iptables.reset.rules; }
+
+snitches() { flushtables sudo iptables-restore < /etc/network/iptables.mitm.rules; }
+stitches() { flushtables sudo iptables-restore < /etc/network/iptables.up.rules; }
+
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=5
 ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=bracketed-paste
 
