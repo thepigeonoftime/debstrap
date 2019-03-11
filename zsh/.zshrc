@@ -40,6 +40,7 @@ alias l="ls -la --color=auto"
 alias rip="~/.cargo/bin/rg -C5 --no-ignore -iuu"
 alias rg="~/.cargo/bin/rg --no-ignore -iuu"
 
+alias stow="stow --no-folding"
 alias vim="nvim"
 
 f() { find ./ -name $1 }
