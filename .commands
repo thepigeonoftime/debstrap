@@ -1,7 +1,4 @@
-git clone https://github.com/tarjoilija/zgen.git "${STOW_DIR}/zgen/.zgen"
-git clone https://github.com/tmux-plugins/tpm "${STOW_DIR}/tmux/.tmux/plugins/tpm"
-git clone https://github.com/VundleVim/Vundle.vim.git "${STOW_DIR}/vim/.vim/bundle/Vundle.vim"
-sudo stow -t /root/ -d $STOW_DIR nvim vim
-chsh -s /usr/bin/zsh
-zsh
+git clone https://github.com/tarjoilija/zgen.git "${HOME}/zgen/.zgen"
+git clone https://github.com/tmux-plugins/tpm "${HOME}/tmux/.tmux/plugins/tpm"
+git clone https://github.com/VundleVim/Vundle.vim.git "${HOME}/vim/.vim/bundle/Vundle.vim"
 sudo rpi-update -y
