@@ -123,10 +123,10 @@ dotfiles=$(find "$STOW_DIR" -maxdepth 1 -type d -not -name "\.*" -printf '%f ')
 # stow dotfiles #
 if [[ "$stow_dotfiles"  == true && ! -z "${dotfiles}" ]]; then
 	cecho "Stowing $dotfiles in $STOW_DIR..."
-	stow -d "$STOW_DIR" $dotfiles
+	stow -d "$STOW_DIR" $dotfiles --no-folding
 	if [[ "$stow_root" == true ]]; then
 		cecho "Stowing $dotfiles to /root/..."
-		sudo stow -d "$STOW_DIR" -t /root/ $dotfiles
+		sudo stow -d "$STOW_DIR" -t /root/ $dotfiles --no-folding
 	fi
 fi
 
