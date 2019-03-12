@@ -25,6 +25,7 @@ if ! zgen saved; then
 
     #themes
     zgen oh-my-zsh themes/agnoster
+    #zgen oh-my-zsh themes/pure
 
     zgen save
 
