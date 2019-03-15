@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 ### Defaults ###
 
@@ -87,6 +88,8 @@ if [[ "$set_locale" == true ]]; then
 	sudo locale-gen
 fi
 
+set +e
+
 # clone dotfile repo #
 cecho "Cloning dotfile repository..."
 git clone --branch "$branch" "$repo_url" "$STOW_DIR"
@@ -97,6 +100,8 @@ while [ "$?" -ne 0 ]; do
 	branch=$(setinput "master" '.' "$branchtext")
 	git clone --branch "$branch" "$repo_url" "$STOW_DIR"
 done
+
+set -e
 
 # load packages and commands into vars #
 pkgs=$(<$STOW_DIR/.packages)
