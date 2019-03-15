@@ -21,6 +21,6 @@ Read install.sh, download, optionally change defaults, run.
 
 Alternative one-liner:  
 
-```source <(curl -s https://raw.githubusercontent.com/p1g30n/dotstrap/master/install.sh)```  
+```bash -c "$(curl -s https://raw.githubusercontent.com/p1g30n/dotstrap/master/install.sh)"```  
   
 (use at own risk)
