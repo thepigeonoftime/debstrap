@@ -1,10 +1,17 @@
-### debstrap
+# debstrap
 
-###### dotfile boostrap for Debian based systems using GNU stow
-_____
+ ###### dotfile boostrap for Debian based systems using GNU stow
+  
+### Installation
 
+##### Manual / Dotfiles only
+* Install packages ```git``` and ```stow```
+* clone repository to a dotfile folder in $HOME
+* cd into the folder and stow dotfiles from there
 
-##### Usage
+##### Using Install.sh
+
+Read ```install.sh```, download, optionally change defaults, and run.  
 The script asks for a git repository (+ optional branch) with a GNU stow compatible folder structure to clone from, installs necessary dependencies and then walks you through a set of possible actions:
 
 * configure default locale
@@ -16,11 +23,8 @@ The script asks for a git repository (+ optional branch) with a GNU stow compati
 * change default shell
 
 
-##### Installation
-Read install.sh, download, optionally change defaults, run.
+*Optional one-liner:*  
 
-Alternative one-liner:  
+```bash -c "$(curl -s https://raw.githack.com/p1g30n/debstrap/master/install.sh)"```  
 
-```bash -c "$(curl -s https://raw.githubusercontent.com/p1g30n/dotstrap/master/install.sh)"```  
-  
-(use at own risk)
+*(use at own risk)*
