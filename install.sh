@@ -58,8 +58,8 @@ repo_url=$(setinput "$def_repo" '^(http|https)://' "$repotext")
 branch=$(setinput "master" '.' "$branchtext")
 
 set_locale=$(setopts "$localetext")
-upgrade_pkgs=$(setopts "$apttext")
-pkg_install=$(setopts "$pkgtext")
+# upgrade_pkgs=$(setopts "$apttext")
+# pkg_install=$(setopts "$pkgtext")
 run_commands=$(setopts "$cmdtext")
 stow_dotfiles=$(setopts "$stowalltext")
 stow_root=$(setopts "$stowroottext")
@@ -68,12 +68,12 @@ change_shell=$(setopts "$shelltext")
 ### Install ###
 
 # update packages #
-cecho "Updating packages..."
-sudo apt-get update -q
+# cecho "Updating packages..."
+# sudo apt-get update -q
 
 # install dependencies #
-cecho "Installing dependencies..."
-sudo apt-get install -yq git stow $def_shell
+# cecho "Installing dependencies..."
+# sudo apt-get install -yq git stow $def_shell
 
 # upgrade packages #
 if [[ "$upgrade_packages" == true ]]; then
