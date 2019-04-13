@@ -34,6 +34,7 @@ alias attmux="tmux attach-session -t"
 alias killmux="tmux kill-session -t"
 alias listmux="tmux list-sessions"
 alias mux="tmux new-session -s"
+alias rmux="pgrep -vxq tmux && tmux new-session -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me  || tmux attach"
 alias namemux="tmux rename-session -t"
 
 alias l="ls -la --color=auto"
