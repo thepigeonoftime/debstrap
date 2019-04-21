@@ -1,0 +1,6 @@
+aptup() { sudo apt-get update && sudo apt-get upgrade }
+hist() { history | tail -$1 }
+ipinfo() { curl -s ipinfo.io | jq -r ".ip, .hostname, .city, .country, .org" | tr -s '\r\n' ' ' && echo '\r' && ipconfig getifaddr en1 }
+mdir() { mkdir $1 && cd $1;}
+rl() { readlink -f $1 }
+zshup() {zmanage update && git -C $HOME/.oh-my-zsh pull && git -C $HOME/.zim/modules/prompt/external-themes/powerlevel10k pull && zmanage build-cache}

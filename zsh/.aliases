@@ -1,0 +1,28 @@
+alias attmux="tmux attach-session -t"
+alias killmux="tmux kill-session -t"
+alias listmux="tmux list-sessions"
+alias mux="tmux new-session -s"
+alias rmux="pgrep -vxq tmux && tmux new-session -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me  || tmux attach"
+alias namemux="tmux rename-session -t"
+
+# alias l="exa -la"
+# alias lt="exa -lasnew"
+alias l="ls -la --color=auto"
+
+alias fd="fd -H -I -L"
+alias ff="/usr/local/bin/fd"
+alias f="find ./ -name $1 2&> /dev/null"
+alias fm="find ./ -name \*$1\* 2&> /dev/null"
+alias fr="find / -name $1 2&> /dev/null"
+alias fdir="find ./ -name $1 -type d 2&> /dev/null"
+alias fdr="find / -name $1 -type d 2&> /dev/null"
+
+alias rip="~/.cargo/bin/rg -C5 --no-ignore -iuu"
+alias rg="~/.cargo/bin/rg --no-ignore -iuu"
+
+alias sauce="source ~/.zshrc"
+alias stowf="stow --no-folding"
+alias sudo="sudo "
+alias vim='nvim'
+alias x="jump"
+
