@@ -1,5 +1,5 @@
 git clone --recursive https://github.com/zimfw/zimfw.git ${HOME}/.zim
-git clone https://github.com/bhilburn/powerlevel10k.git ${HOME}/.zim/modules/prompt/external-themes/powerlevel10k
+git clone https://github.com/romkatv/powerlevel10k ${HOME}/.zim/modules/prompt/external-themes/powerlevel10k
 ln -s ~/.zim/modules/prompt/external-themes/powerlevel10k/powerlevel10k.zsh-theme ~/.zim/modules/prompt/functions/prompt_powerlevel10k_setup
 git clone https://github.com/robbyrussell/oh-my-zsh/ ${HOME}/.oh-my-zsh
 git clone https://github.com/tmux-plugins/tpm "${HOME}/tmux/.tmux/plugins/tpm"
