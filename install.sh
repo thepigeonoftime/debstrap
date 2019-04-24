@@ -112,6 +112,7 @@ if [[ "$pkg_install" == true && ! -z "{$pkgs}" ]]; then
 fi
 
 # run commands #
+set +e
 if [[ "$run_commands" == true && ! -z "{$cmds}" ]]; then
 	cecho "Running commands defined in .commands..."
 	while read -r line
@@ -119,6 +120,7 @@ if [[ "$run_commands" == true && ! -z "{$cmds}" ]]; then
 		eval ${line}
 	done<<<${cmds}
 fi
+set -e
 
 # collect dotfile folders
 dotfiles=$(find "$STOW_DIR" -maxdepth 1 -type d -not -name "\.*" -printf '%f ')
