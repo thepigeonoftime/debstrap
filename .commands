@@ -5,3 +5,4 @@ git clone https://github.com/robbyrussell/oh-my-zsh/ ${HOME}/.oh-my-zsh
 git clone https://github.com/tmux-plugins/tpm "${HOME}/tmux/.tmux/plugins/tpm"
 git clone https://github.com/VundleVim/Vundle.vim.git "${HOME}/vim/.vim/bundle/Vundle.vim"
 sudo rpi-update -y
+rm /etc/dnsmasq.conf
