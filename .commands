@@ -8,4 +8,7 @@ sudo mv /etc/dhcpcd.conf /etc/dhcpcd.conf.bak
 sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.bak
 sudo mv /etc/network/interfaces /etc/network/interfaces.bak
 sudo mv /etc/hostapd/hostapd.conf /etc/hostapd/hostapd.conf.bak
+sudo sed -i 's/^#DAEMON_CONF=""/DAEMON_CONF="\/etc\/hostapd\/hostapd.conf"/' /etc/default/hostapd
+sudo sed -i 's/^#DAEMON_OPTS=""/DAEMON_OPTS="-d"/' /etc/default/hostapd
+sudo systemctl daemon-reload
 sudo rpi-update -y
