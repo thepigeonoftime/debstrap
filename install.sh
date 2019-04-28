@@ -5,7 +5,7 @@ set -e
 
 def_repo="https://github.com/p1g30n/dotstrap"
 def_stowdir=".dotfiles"
-def_locale="en_US"
+def_locale="en_US.UTF-8"
 def_shell="zsh"
 txtcolor='\033[0;30m\033[47m'
 
@@ -84,7 +84,7 @@ fi
 # configure locales #
 if [[ "$set_locale" == true ]]; then
 	cecho "Generating locale $def_locale..."
-	sudo sed -i 's/^#$def_locale/$def_locale/' /etc/locale.gen
+	sudo sed -i "s/^#.$def_locale/$def_locale/" /etc/locale.gen
 	sudo locale-gen
 fi
 
