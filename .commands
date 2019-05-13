@@ -1,6 +1,6 @@
 git clone --recursive https://github.com/zimfw/zimfw.git ${STOW_DIR}/zsh/.zim
 git clone https://github.com/romkatv/powerlevel10k ${STOW_DIR}/zsh/.zim/modules/prompt/external-themes/powerlevel10k
-ln -s ${STOW_DIR}/zsh/.zim/modules/prompt/external-themes/powerlevel10k/powerlevel10k.zsh-theme ${STOW_DIR}/.zim/modules/prompt/functions/prompt_powerlevel10k_setup
+ln -s ${STOW_DIR}/zsh/.zim/modules/prompt/external-themes/powerlevel10k/powerlevel10k.zsh-theme ${STOW_DIR}/zsh/.zim/modules/prompt/functions/prompt_powerlevel10k_setup
 git clone https://github.com/robbyrussell/oh-my-zsh/ ${STOW_DIR}/zsh/.oh-my-zsh
 git clone https://github.com/tmux-plugins/tpm "${STOW_DIR}/tmux/.tmux/plugins/tpm"
 git clone https://github.com/VundleVim/Vundle.vim.git "${STOW_DIR}/vim/.vim/bundle/Vundle.vim"
