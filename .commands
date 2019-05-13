@@ -6,6 +6,7 @@ git clone https://github.com/tmux-plugins/tpm "${STOW_DIR}/tmux/.tmux/plugins/tp
 git clone https://github.com/VundleVim/Vundle.vim.git "${STOW_DIR}/vim/.vim/bundle/Vundle.vim"
 sudo mv /etc/dhcpcd.conf /etc/dhcpcd.conf.bak
 sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.bak
+sudo mv /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.bak
 sudo mv /etc/network/interfaces /etc/network/interfaces.bak
 sudo mv /etc/hostapd/hostapd.conf /etc/hostapd/hostapd.conf.bak
 sudo sed -i 's/^#DAEMON_CONF=""/DAEMON_CONF="\/etc\/hostapd\/hostapd.conf"/' /etc/default/hostapd
