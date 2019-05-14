@@ -4,7 +4,9 @@ git clone https://github.com/robbyrussell/oh-my-zsh/ ${STOW_DIR}/zsh/.oh-my-zsh
 git clone https://github.com/tmux-plugins/tpm "${STOW_DIR}/tmux/.tmux/plugins/tpm"
 git clone https://github.com/VundleVim/Vundle.vim.git "${STOW_DIR}/vim/.vim/bundle/Vundle.vim"
 
-stow -d "$STOW_DIR" tmux vim zsh
+# create protected directories to prevent stow symlinking #
+
+mkdir ${HOME}/.config
 
 ln -s ${STOW_DIR}/zsh/.zim/modules/prompt/external-themes/powerlevel10k/powerlevel10k.zsh-theme ${STOW_DIR}/zsh/.zim/modules/prompt/functions/prompt_powerlevel10k_setup
 
