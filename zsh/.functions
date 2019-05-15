@@ -11,4 +11,6 @@ flushtables() { for i in $( sudo iptables -t nat --line-numbers -L | grep '^[0-9
 snitches() { flushtables; sudo iptables-restore < /etc/network/iptables.mitm.rules; }
 stitches() { flushtables; sudo iptables-restore < /etc/network/iptables.up.rules; }
 
+netreset() { sudo systemctl daemon-reload && sudo service networking restart && sudo service dhcpcd restart && sudo service hostapd restart && sleep 5 && sudo service isc-dhcp-server restart }
+
 ipinfo() { curl -s ipinfo.io | jq -r ".ip, .hostname, .city, .country, .org" | tr -s '\r\n' ' ' && echo '\r' && ipconfig getifaddr en1 }
