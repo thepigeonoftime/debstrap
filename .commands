@@ -19,4 +19,6 @@ sudo sed -i 's/^#DAEMON_CONF=""/DAEMON_CONF="\/etc\/hostapd\/hostapd.conf"/' /et
 sudo sed -i 's/^#DAEMON_OPTS=""/DAEMON_OPTS="-d"/' /etc/default/hostapd
 sudo sed -i 's/^#net.ipv4.ip_forward/net.ipv4.ip_forward/' /etc/sysctl.conf
 sudo sed -i 's/^INTERFACESv4=""/INTERFACESv4="wlan0"/' /etc/default/isc-dhcp-server
-sudo systemctl daemon-reload
+sudo sed -i 's/raspberry/snitchbox/' /etc/hostname
+sudo sed -i 's/raspberry/snitchbox/' /etc/hosts
+#sudo systemctl daemon-reload
