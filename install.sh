@@ -3,7 +3,7 @@ set -e
 
 ### Defaults ###
 
-def_repo="https://github.com/p1g30n/dotstrap"
+def_repo="https://github.com/p1g30n/debstrap"
 def_stowdir=".dotfiles"
 def_locale="en_US.UTF-8"
 def_shell="zsh"
