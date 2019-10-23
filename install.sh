@@ -3,9 +3,9 @@ set -e
 
 ### Defaults ###
 
-def_repo="https://github.com/p1g30n/dotstrap"
+def_repo="https://github.com/p1g30n/debstrap"
 def_stowdir=".dotfiles"
-def_locale="en_US"
+def_locale="en_US.UTF-8"
 def_shell="zsh"
 txtcolor='\033[0;30m\033[47m'
 
@@ -84,7 +84,7 @@ fi
 # configure locales #
 if [[ "$set_locale" == true ]]; then
 	cecho "Generating locale $def_locale..."
-	sudo sed -i 's/^#$def_locale/$def_locale/' /etc/locale.gen
+	sudo sed -i "s/^#.$def_locale/$def_locale/" /etc/locale.gen
 	sudo locale-gen
 fi
 
@@ -112,6 +112,7 @@ if [[ "$pkg_install" == true && ! -z "{$pkgs}" ]]; then
 fi
 
 # run commands #
+set +e
 if [[ "$run_commands" == true && ! -z "{$cmds}" ]]; then
 	cecho "Running commands defined in .commands..."
 	while read -r line
@@ -119,23 +120,29 @@ if [[ "$run_commands" == true && ! -z "{$cmds}" ]]; then
 		eval ${line}
 	done<<<${cmds}
 fi
+set -e
 
 # collect dotfile folders
-dotfiles=$(find "$STOW_DIR" -maxdepth 1 -type d -not -name "\.*" -printf '%f ')
+dotfiles=$(find "$STOW_DIR" -maxdepth 1 -type d -not -name "\.*" -not -name "\_*" -printf '%f ')
+conffiles=$(find "$STOW_DIR" -maxdepth 1 -type d -not -name "\.*" -name "\_*" -printf '%f ')
 
 # stow dotfiles #
 if [[ "$stow_dotfiles"  == true && ! -z "${dotfiles}" ]]; then
-	cecho "Stowing $dotfiles in $STOW_DIR..."
+	cecho "Stowing $dotfiles in $STOW_DIR ..."
 	stow -d "$STOW_DIR" $dotfiles --no-folding
+	if [[ ! -z "${conffiles}" ]]; then
+		cecho "Stowing global conf files in: $conffiles ..."
+		sudo -E stow -d "$STOW_DIR" -t / $conffiles --no-folding
+	fi
 	if [[ "$stow_root" == true ]]; then
-		cecho "Stowing $dotfiles to /root/..."
-		sudo stow -d "$STOW_DIR" -t /root/ $dotfiles --no-folding
+		cecho "Stowing $dotfiles to /root/ ..."
+		sudo -E stow -d "$STOW_DIR" -t /root/ $dotfiles --no-folding
 	fi
 fi
 
 # change default shell #
 if [[ "$change_shell" == true ]]; then
-	cecho "Changing default shell..."
+	cecho "Changing default shell ..."
 	chsh -s $(which "$def_shell") $(whoami)
 	exec "$def_shell"
 fi

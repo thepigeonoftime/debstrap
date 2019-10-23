@@ -1,4 +1,3 @@
-#
 # User configuration sourced by interactive shells
 #
 # zmodload zsh/zprof
