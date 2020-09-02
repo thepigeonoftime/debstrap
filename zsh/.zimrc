@@ -1,99 +1,99 @@
-#################
-# CORE SETTINGS #
-#################
+# setopt promptsubst
+# autoload -Uz promptinit
+# promptinit
 
-#
-# Zim settings
-#
+zstyle ':zim:input' double-dot-expand yes
 
-# Select what modules you would like enabled.
-# The second line of modules may depend on options set by modules in the first
-# line. These dependencies are noted on the respective module's README.md.
-zmodules=(directory environment history input utility custom \
-          prompt completion syntax-highlighting history-substring-search autosuggestions		)
-#gitinfo
 
-###################
-# MODULE SETTINGS #
-###################
+zmodule environment # Sets sane Zsh built-in environment options.
+zmodule input # Applies correct bindkeys for input events.
+zmodule utility # Utility aliases and functions. Adds colour to ls, grep and less.
+zmodule git-info # Exposes git repository status information to prompts.
 
-#
-# Prompt
-#
+zmodule romkatv/powerlevel10k
 
-# Set your desired prompt here
-zprompt_theme='powerlevel10k'
-#zprompt_theme='eriner'
-#zprompt_theme='steeef'
+# zmodule ssh # Provides a convenient way to load ssh-agent.
+# zmodule termtitle # Sets a custom terminal title.
+# zmodule git # Provides handy git aliases and functions.
 
-#
-# Completion
-#
+# zmodule romkatv/powerlevel10k
+zmodule homebrew
 
-# Set an optional host-specific filename for the completion cache file. If none
-# is provided, the default '.zcompdump' is used.
-zcompdump_file=".zcompdump-${HOST}-${ZSH_VERSION}"
+zmodule zsh-users/zsh-completions # Additional completion definitions for Zsh.
+zmodule completion # completion must be sourced after zsh-users/zsh-completions
+zmodule zsh-users/zsh-autosuggestions # Fish-like autosuggestions for Zsh.
+zmodule zsh-users/zsh-syntax-highlighting # zsh-users/zsh-syntax-highlighting must be sourced after completion
+zmodule zsh-users/zsh-history-substring-search #must be sourced after zsh-users/zsh-syntax-highlighting
+zmodule history-substring-search
 
-#
-# Utility
-#
+zmodule ohmyzsh/ohmyzsh \
+-s plugins/git/git.plugin.zsh \
+-s plugins/sudo/sudo.plugin.zsh \
+-s plugins/jump/jump.plugin.zsh \
+#-s plugins/tmux/tmux.plugin.zsh
 
-# Uncomment to enable spelling correction prompt for commands. See:
-# http://zsh.sourceforge.net/Doc/Release/Options.html#Input_002fOutput
+# Remove older command from the history if a duplicate is to be added.
+setopt HIST_IGNORE_ALL_DUPS
+
+# Set editor default keymap to emacs (`-e`) or vi (`-v`)
+bindkey -e
+#KEYTIMEOUT=10
+
+# Prompt for spelling correction of commands.
 setopt CORRECT
 
-# Set custom spelling correction prompt
-#SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+# Customize spelling correction prompt.
+SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 
-#
-# Environment
-#
+# Remove path separator from WORDCHARS.
+WORDCHARS=${WORDCHARS//[\/]}
 
-# Set the string below to the desired terminal title format string.
-# The terminal title is redrawn upon directory change, however, variables like 
-# ${PWD} are only evaluated once. Use prompt expansion strings for dynamic data:
-#   http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
-# The example below uses the following format: 'username@host:/current/directory'
-ztermtitle='%n@%m:%~'
+# Set a custom path for the completion dump file.
+# If none is provided, the default ${ZDOTDIR:-${HOME}}/.zcompdump is used.
+zstyle ':zim:completion' dumpfile "${ZDOTDIR:-${HOME}}/.zcompdump-${ZSH_VERSION}"
 
-#
-# Input
-#
+# Set a custom prefix for the generated aliases. The default prefix is 'G'.
+#zstyle ':zim:git' aliases-prefix 'g'
 
-# Set to vi or emacs
-zinput_mode='emacs'
-#zinput_mode='vi'
+# Append `../` to your input for each `.` you type after an initial `..`
+zstyle ':zim:input' double-dot-expand yes
 
-# Uncomment to enable double-dot expansion. This appends '../' to your input for
-# each '.' you type after an initial '..'
-zdouble_dot_expand='true'
+# Set a custom terminal title format using prompt expansion escape sequences.
+# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
+# If none is provided, the default '%n@%m: %~' is used.
+zstyle ':zim:termtitle' format '%1~'
 
-#
-# Syntax-Highlighting
-#
+# Customize the style that the suggestions are shown with.
+# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 
-# This determines what highlighters will be used with the syntax-highlighting module.
-# Documentation of the highlighters can be found here:
-#   https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
-# For (u)rxvt, termite and gnome-terminal users,
-# removing the 'cursor' highlighter will fix the disappearing cursor problem
-zhighlighters=(main brackets cursor)
+# Set what highlighters will be used.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
-#
-# SSH
-#
+# Customize the main highlighter styles.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[comment]='fg=10'
 
-# Load these ssh identities with the ssh module
-#zssh_ids=(id_rsa)
+# bindkey "^?" backward-delete-char
+# bindkey '^H' backward-kill-word
+# bindkey -M vicmd v edit-command-line
 
-#
-# Pacman
-#
+#Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
 
-# Set (optional) pacman front-end.
-#zpacman_frontend='powerpill'
+#Bind up and down keys
+# zmodload -F zsh/terminfo +p:terminfo
+# if [[ -n ${terminfo[kcuu1]} && -n ${terminfo[kcud1]} ]]; then
+#   bindkey ${terminfo[kcuu1]} history-substring-search-up
+#   bindkey ${terminfo[kcud1]} history-substring-search-down
+# fi
 
-# Load any helper scripts as defined here
-#zpacman_helper=(aur)
-
-
+# zsh-history-substring-search
+# bindkey '^P' history-substring-search-up
+# bindkey '^N' history-substring-search-down
+# bindkey -M vicmd 'k' history-substring-search-up
+# bindkey -M vicmd 'j' history-substring-search-down
+# zstyle ':zim:input' double-dot-expand yes
