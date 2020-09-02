@@ -3,6 +3,7 @@ git clone https://github.com/romkatv/powerlevel10k ${STOW_DIR}/zsh/.zim/modules/
 git clone https://github.com/robbyrussell/oh-my-zsh/ ${STOW_DIR}/zsh/.oh-my-zsh
 git clone https://github.com/tmux-plugins/tpm "${STOW_DIR}/tmux/.tmux/plugins/tpm"
 git clone https://github.com/VundleVim/Vundle.vim.git "${STOW_DIR}/vim/.vim/bundle/Vundle.vim"
+zsh ~/.zim/zimfw.zsh install
 echo "export STOW_DIR=${STOW_DIR}" >> ${STOW_DIR}/zsh/.zshrc
 
 mkdir ${HOME}/.config
