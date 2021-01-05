@@ -12,3 +12,4 @@ source $HOME/.zsh-theme
 source $HOME/.exports
 source $HOME/.extra
 
+export STOW_DIR=/home/brot/.dotfiles
