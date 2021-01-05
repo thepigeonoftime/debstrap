@@ -47,6 +47,8 @@ Plugin 'mattn/emmet-vim'
 
 Plugin 'terryma/vim-multiple-cursors'
 
+Plugin 'lambdalisue/suda.vim'
+
 " Plugin 'Valloric/YouCompleteMe'
 
 " Plugin 'gioele/vim-autoswap'
