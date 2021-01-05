@@ -1,6 +1,6 @@
 POWERLEVEL9K_MODE="nerdfont-complete"
 # POWERLEVEL9K_MODE='awesome-fontconfig'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(public_ip dir_joined dir_writable_joined root_indicator vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir_joined dir_writable_joined root_indicator vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time background_jobs load ram_joined time status_joined)
 
 POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=true
