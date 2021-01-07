@@ -50,7 +50,7 @@ call plug#begin('~/.config/nvim/site/autoload/plug.vim')
 " Plug 'valloric/youcompleteme'
 " Plug 'scrooloose/syntastic' " syntax checking
 Plug 'honza/vim-snippets'
-Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
+" Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 Plug 'tpope/vim-fugitive'  " git wrapper
 Plug 'dense-analysis/ale' " syntax checking
 Plug 'scrooloose/nerdtree' " side tree
