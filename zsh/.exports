@@ -11,5 +11,7 @@ export GOPATH="$HOME/.go/"
 export TERM=xterm-256color
 export POWERLEVEL9K_IGNORE_TERM_COLORS=true
 
+export PATH="$PATH:~/.local/bin"
+
 export STOW_DIR="${HOME}/.dotfiles"
 export dot="${HOME}/.dotfiles"
