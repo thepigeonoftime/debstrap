@@ -13,7 +13,7 @@ own() { sudo chown -R www-data:www-data $1; }
 gown() { sudo chmod -R g+wrx $1; }
 
 # networking
-
+ufwdel() { sudo ufw delete $1 && sudo ufw status numbered }
 ngxlnk() { sudo ln -s "/etc/nginx/sites-available/$1" "/etc/nginx/sites-enabled/$1"; } 
 
 listtables() { sudo iptables -t nat -L -n -v && sudo iptables -L -v -n | more }
