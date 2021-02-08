@@ -9,6 +9,8 @@ alias nmux="tmux rename-session -t"
 #alias lt="exa -lasnew --group-directories-first"
 alias l="ls -lga --color=auto"
 
+alias sizes="du -sh * | sort -h"
+
 alias sudo="sudo "
 alias se="sudoedit"
 

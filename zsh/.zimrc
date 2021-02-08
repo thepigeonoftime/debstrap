@@ -10,14 +10,12 @@ zmodule input # Applies correct bindkeys for input events.
 zmodule utility # Utility aliases and functions. Adds colour to ls, grep and less.
 zmodule git-info # Exposes git repository status information to prompts.
 
-zmodule romkatv/powerlevel10k
-
 # zmodule ssh # Provides a convenient way to load ssh-agent.
 # zmodule termtitle # Sets a custom terminal title.
 # zmodule git # Provides handy git aliases and functions.
 
 # zmodule romkatv/powerlevel10k
-zmodule homebrew
+#zmodule homebrew
 
 zmodule zsh-users/zsh-completions # Additional completion definitions for Zsh.
 zmodule completion # completion must be sourced after zsh-users/zsh-completions
@@ -25,6 +23,8 @@ zmodule zsh-users/zsh-autosuggestions # Fish-like autosuggestions for Zsh.
 zmodule zsh-users/zsh-syntax-highlighting # zsh-users/zsh-syntax-highlighting must be sourced after completion
 zmodule zsh-users/zsh-history-substring-search #must be sourced after zsh-users/zsh-syntax-highlighting
 zmodule history-substring-search
+
+zmodule romkatv/powerlevel10k
 
 zmodule ohmyzsh/ohmyzsh \
 -s plugins/git/git.plugin.zsh \
