@@ -1,7 +1,7 @@
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-git clone https://github.com/tmux-plugins/tpm "${STOW_DIR}/tmux/.tmux/plugins/tpm"
+git clone https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
 echo "export STOW_DIR=${STOW_DIR}" >> ${STOW_DIR}/zsh/.zshrc
 
-mkdir ${HOME}/.config
+mkdir -p ${HOME}/.config/nvim
 
