@@ -1,12 +1,21 @@
-aptup() { sudo apt-get update && sudo apt-get upgrade }
-zshup() { zmanage update && git -C $HOME/.oh-my-zsh pull && git -C $HOME/.zim/modules/prompt/external-themes/powerlevel10k pull && zmanage build-cache }
-
+# coreutils
+hist() { history | tail -$1 }
+lg() { ls | grep $1; }
 mdir() { mkdir $1 && cd $1;}
 rl() { readlink -f $1 }
-hist() { history | tail -$1 }
 
 # find
 f() { find ./ -name \*$1\* 2&> /dev/null; }
+fc() { find ./ -iname \*$1\* 2&> /dev/null | grcat findhi;}
+fdir() { find ./ -type d -iname \*$1\* 2&> /dev/null | grcat findhi }
+fvim() { find ./ -iname \*$1\* 2&> /dev/null | xargs -o nvim; } 
+
+# zsh
+dots() { zstyle ':zim:input' double-dot-expand yes }
+hist() { history | tail -$1; }
+sauce() { source ${1:-~/.zshrc} }
+zim() { zimfw install && zimfw uninstall && zimfw upgrade && zimfw update && zimfw clean && zimfw compile && zimfw build; }
+zimup() {zimfw upgrade && zimfw update && zimfw clean && zimfw compile && zimfw build; }
 
 # permissions
 own() { sudo chown -R www-data:www-data $1; }
@@ -24,5 +33,6 @@ stitches() { flushtables; sudo iptables-restore < /etc/network/iptables.up.rules
 
 netreset() { sudo systemctl daemon-reload && sudo service networking restart && sudo service dhcpcd restart && sudo service hostapd restart && sleep 5 && sudo service isc-dhcp-server restart }
 
+dnsinfo() { dig whoami.akamai.net +short | tee /dev/stderr | nslookup -type=PTR | rg --colors=match:none '^.+name = (.*).' -r'$1'; }
 ipinfo() { curl -s ipinfo.io | jq -r ".ip, .hostname, .city, .country, .org" | tr -s '\r\n' ' ' && echo '\r' && ipconfig getifaddr en1 }
 
