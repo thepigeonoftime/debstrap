@@ -1,36 +1,46 @@
-alias amux="tmux attach-session -t"
-alias kmux="tmux kill-session -t"
-alias lmux="tmux list-sessions"
-alias mux="tmux new-session -s"
-alias rmux="pgrep -vxq tmux && tmux new-session -s delete-me && tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t delete-me  || tmux attach"
-alias nmux="tmux rename-session -t"
-
-#alias l="exa -la --group-directories-first"
-#alias lt="exa -lasnew --group-directories-first"
-alias l="ls -la --color=auto"
-
-alias sizes="du -sh * | sort -h"
-
+# sudo
 alias sudo="sudo "
 alias se="sudoedit"
 
+# apt
+alias apti="aptitude"
+alias aptup="sudo apt update"
+alias aptupg="sudo apt update && sudo apt upgrade"
+alias aptupl="sudo apt update && sudo apt list --upgradeable"
+alias aptclean="sudo apt autoremove --purge"
+alias aptgrep="sudo apt list --installed | grep"
+
+# coreutils
+alias cd-="popd"
+#alias cp="cpa -g"
+#alias mv="mva -g"
+
+# ls
+alias l="ls -la --color=auto"
+#alias l="exa -la --group-directories-first"
+#alias lt="exa -lasnew --group-directories-first"
+
+# git
 alias gll="git log"
 
-
-#alias fd="fd -H -I -L"
-#alias ff="/usr/local/bin/fd"
-#alias f="find ./ -name $1 2&> /dev/null"
-#alias fm="find ./ -name \*$1\* 2&> /dev/null"
-#alias fr="find / -name $1 2&> /dev/null"
-#alias fdir="find ./ -name $1 -type d 2&> /dev/null"
-#alias fdr="find / -name $1 -type d 2&> /dev/null"
-
-alias rip="/usr/bin/rg -C5 --no-ignore -iuu"
-alias rg="/usr/bin/rg --no-ignore -iuu"
-
-alias sauce="source ~/.zshrc"
-alias stowf="stow --no-folding"
-alias sudo="sudo "
+# vim
 alias vim='nvim'
+
+# rg
+alias rip="~/.cargo/bin/rg -C5 --no-ignore -iuu"
+alias rg="~/.cargo/bin/rg --no-ignore -iuu"
+
+# zsh
 alias x="jump"
+
+# du
+alias sizes="du -sh * | sort -h"
+
+# tmux
+alias amux="tmux attach-session -t"
+alias kmux="tmux kill-session -t"
+alias lmux="tmux list-sessions"
+alias nmux="tmux rename-session -t"
+alias mux="tmux new-session -s"
+alias rmux="pgrep tmux &> /dev/null || (tmux new-session -d -s restore 'tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t restore' &)"
 
