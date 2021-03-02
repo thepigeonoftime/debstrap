@@ -16,3 +16,5 @@ export PATH="$PATH:$HOME/.local/bin"
 
 export STOW_DIR="${HOME}/.dotfiles"
 export dot="${HOME}/.dotfiles"
+
+: ${ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim}

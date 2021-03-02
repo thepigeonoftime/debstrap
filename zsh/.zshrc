@@ -1,11 +1,18 @@
-export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+#zmodload zsh/zprof
 
-[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+if [[ ${ZIM_HOME}/init.zsh -ot ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+
+source $HOME/.zim-env
+source ${ZIM_HOME}/init.zsh
 
 source $HOME/.aliases
 source $HOME/.functions
 source $HOME/.zsh-theme
-source $HOME/.exports
 source $HOME/.extra
-
-export STOW_DIR=~/.dotfiles
