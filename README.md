@@ -25,6 +25,7 @@ The script asks for a git repository (+ optional branch) with a GNU stow compati
 
 *Optional one-liner:*  
 
-```bash -c "$(curl -sL https://raw.githack.com/p1g30n/debstrap/master/install.sh)"```  
+```bash -c "$(wget -qO- https://raw.githack.com/p1g30n/debstrap/master/install.sh)"```
 
 *(use at own risk)*
+
