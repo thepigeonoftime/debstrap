@@ -13,5 +13,5 @@ source ${ZIM_HOME}/init.zsh
 
 source $HOME/.aliases
 source $HOME/.functions
-source $HOME/.zsh-theme
+source $HOME/.theme
 source $HOME/.extra
