@@ -18,8 +18,8 @@ zim() { zimfw install && zimfw uninstall && zimfw upgrade && zimfw update && zim
 zimup() {zimfw upgrade && zimfw update && zimfw clean && zimfw compile && zimfw build; }
 
 # permissions
-own() { sudo chown -R www-data:www-data $1; }
-gown() { sudo chmod -R g+wrx $1; }
+own() { sudo chown -R www-data:www-data "$@"; }
+gown() { sudo chmod -R g+wrx "$@"; }
 
 # networking
 ufwdel() { yes | sudo ufw delete $1 && sudo ufw status numbered }
