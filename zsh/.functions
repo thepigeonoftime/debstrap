@@ -18,7 +18,9 @@ zim() { zimfw install && zimfw uninstall && zimfw upgrade && zimfw update && zim
 zimup() {zimfw upgrade && zimfw update && zimfw clean && zimfw compile && zimfw build; }
 
 # permissions
-own() { sudo chown -R www-data:www-data "$@"; }
+own() { sudo chown -R "$USER:$USER" "$@"; }
+cown() { sudo chown -R cron:cron "$@"; }
+wown() { sudo chown -R www-data:www-data "$@"; }
 gown() { sudo chmod -R g+wrx "$@"; }
 
 # networking
