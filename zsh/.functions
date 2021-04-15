@@ -20,6 +20,7 @@ zimup() {zimfw upgrade && zimfw update && zimfw clean && zimfw compile && zimfw 
 # permissions
 own() { sudo chown -R "$USER:$USER" "$@"; }
 cown() { sudo chown -R cron:cron "$@"; }
+vown() { sudo chown -R vmail:vmail "$@"; }
 wown() { sudo chown -R www-data:www-data "$@"; }
 gmod() { sudo chmod -R g+wrx "$@"; }
 
