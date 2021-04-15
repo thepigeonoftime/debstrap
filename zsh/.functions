@@ -21,7 +21,7 @@ zimup() {zimfw upgrade && zimfw update && zimfw clean && zimfw compile && zimfw 
 own() { sudo chown -R "$USER:$USER" "$@"; }
 cown() { sudo chown -R cron:cron "$@"; }
 wown() { sudo chown -R www-data:www-data "$@"; }
-gown() { sudo chmod -R g+wrx "$@"; }
+gmod() { sudo chmod -R g+wrx "$@"; }
 
 # networking
 ufwdel() { yes | sudo ufw delete $1 && sudo ufw status numbered }
