@@ -6,7 +6,7 @@ rl() { readlink -f $1 }
 
 # find
 f() { find ./ -name \*$1\* 2&> /dev/null; }
-fc() { find ./ -iname \*$1\* 2&> /dev/null | grcat findhi;}
+fcolor() { find ./ -iname \*$1\* 2&> /dev/null | grcat findhi;}
 fdir() { find ./ -type d -iname \*$1\* 2&> /dev/null | grcat findhi }
 fvim() { find ./ -iname \*$1\* 2&> /dev/null | xargs -o nvim; } 
 
