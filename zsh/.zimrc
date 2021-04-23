@@ -19,7 +19,8 @@ zmodule romkatv/powerlevel10k
 zmodule ohmyzsh/ohmyzsh \
 -s plugins/git/git.plugin.zsh \
 -s plugins/sudo/sudo.plugin.zsh \
--s plugins/jump/jump.plugin.zsh 
+-s plugins/jump/jump.plugin.zsh \
+-s plugins/fzf/fzf.plugin.zsh
 
 zmodule agkozak/zsh-z -a zsh-z
 
