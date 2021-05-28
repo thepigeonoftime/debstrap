@@ -34,9 +34,6 @@ alias svim="sudo -E nvim"
 # zsh
 alias x="jump"
 
-# du
-alias sizes="du -sh * | sort -h"
-
 # tmux
 alias amux="tmux attach-session -t"
 alias kmux="tmux kill-session -t"

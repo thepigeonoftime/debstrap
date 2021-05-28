@@ -3,6 +3,7 @@ hist() { history | tail -$1 }
 lg() { ls | grep $1; }
 mdir() { mkdir $1 && cd $1;}
 rl() { readlink -f $1 }
+sz() { du -sh "${@}" | sort -h }
 
 # find
 f() { find ./ -name \*$1\* 2&> /dev/null; }
