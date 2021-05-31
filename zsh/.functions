@@ -19,9 +19,12 @@ zim() { zimfw install && zimfw uninstall && zimfw upgrade && zimfw update && zim
 zimup() {zimfw upgrade && zimfw update && zimfw clean && zimfw compile && zimfw build; }
 
 # permissions
-own() { sudo chown -R "$USER:$USER" "$@"; }
+own() { sudo chown -R "${@: -1}:${@: -1}" "${@:1:$# -1}" }
 cown() { sudo chown -R cron:cron "$@"; }
 rown() { sudo chown -R root:root "$@"; }
+sown() { sudo chown -R staging:staging "$@"; }
+uown() { sudo chown -R "$USER:$USER" "$@"; }
+vown() { sudo chown -R vmail:vmail "$@"; }
 wown() { sudo chown -R www-data:www-data "$@"; }
 gmod() { sudo chmod -R g+wrx "$@"; }
 
