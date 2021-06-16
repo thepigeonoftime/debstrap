@@ -41,5 +41,4 @@ stitches() { flushtables; sudo iptables-restore < /etc/network/iptables.up.rules
 netreset() { sudo systemctl daemon-reload && sudo service networking restart && sudo service dhcpcd restart && sudo service hostapd restart && sleep 5 && sudo service isc-dhcp-server restart }
 
 dnsinfo() { dig whoami.akamai.net +short | tee /dev/stderr | nslookup -type=PTR | rg --colors=match:none '^.+name = (.*).' -r'$1'; }
-ipinfo() { curl -s ipinfo.io | jq -r ".ip, .hostname, .city, .country, .org" | tr -s '\r\n' ' ' && echo '\r' && ipconfig getifaddr en1 }
-
+ipinfo() { hostname -I | awk '{print $1}' && curl -s ipinfo.io | jq -r ".ip, .hostname, .city, .country, .org" | tr -s '\r\n' ' ' | sed 's/\ /\n/' }
