@@ -8,7 +8,10 @@ alias aptup="sudo apt update"
 alias aptupg="sudo apt update && sudo apt upgrade"
 alias aptupl="sudo apt update && sudo apt list --upgradeable"
 alias aptclean="sudo apt autoremove --purge"
-alias aptgrep="sudo apt list --installed | grep"
+alias aptdep="sudo apt-cache rdepends"
+alias aptlist="sudo apt list --installed"
+alias aptpkg="sudo apt list --installed | grep"
+alias aptsearch="sudo apt search"
 
 # coreutils
 alias cd-="popd"
