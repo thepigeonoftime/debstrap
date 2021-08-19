@@ -32,7 +32,7 @@ alias svim="sudo -E nvim"
 
 # rg
 #alias rip="~/.cargo/bin/rg -C5 --no-ignore -iuu"
-#alias rg="~/.cargo/bin/rg --no-ignore -iuu"
+alias rg="rg --no-ignore -iuu"
 
 # zsh
 alias x="jump"
