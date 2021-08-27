@@ -1,5 +1,5 @@
 # sudo
-#alias sudo="sudo "
+alias sudo="sudo "
 alias se="sudoedit"
 
 # apt
