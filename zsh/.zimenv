@@ -3,6 +3,8 @@ setopt HIST_IGNORE_ALL_DUPS
 
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -e
+#bindkey -v
+#set -o vi
 #KEYTIMEOUT=10
 
 # Prompt for spelling correction of commands.
@@ -12,7 +14,9 @@ setopt CORRECT
 SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 
 # Remove path separator from WORDCHARS.
-WORDCHARS=${WORDCHARS//[\/]}
+#WORDCHARS=${WORDCHARS//[\/]}
+WORDCHARS='*?_[]~=&;!#$%^(){}'
+#WORDCHARS="${WORDCHARS//()\"\'-.,:;<>~!@#$%^&*|+=[]{}~?│}"
 
 # Set a custom path for the completion dump file.
 # If none is provided, the default ${ZDOTDIR:-${HOME}}/.zcompdump is used.
@@ -64,7 +68,6 @@ bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-
 
 # bindkey "^?" backward-delete-char
 # bindkey '^H' backward-kill-word
