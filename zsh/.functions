@@ -1,7 +1,7 @@
 # coreutils
 #sudo() { case "$1" in "vim") /bin/sudo -E nvim "${@:2}";; *) /bin/sudo "${@}";; esac; }
 binsudo=$(which sudo)
-sudo() { if [[ -n "$aliases[$1]" ]]; then sudocmd="$aliases[$1] ${@:2}"; elif [[ -n "$functions[$1]" ]]; then sudocmd="sudofun() { $(echo ${functions[$1]}) } && sudofun ${@:2}" fi; if [[ -n "$sudocmd" ]]; then $binsudo -E -- zsh -c "$sudocmd"; else $binsudo "${@}"; fi; }
+xudo() { if [[ -n "$aliases[$1]" ]]; then sudocmd="$aliases[$1] ${@:2}"; elif [[ -n "$functions[$1]" ]]; then sudocmd="sudofun() { $(echo ${functions[$1]}) } && sudofun ${@:2}" fi; if [[ -n "$sudocmd" ]]; then $binsudo -E -- zsh -c "$sudocmd"; else $binsudo "${@}"; fi; }
 hist() { history | tail -$1 }
 lg() { ls | grep $1; }
 mdir() { mkdir $1 && cd $1;}
