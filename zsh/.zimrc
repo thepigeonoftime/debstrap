@@ -1,7 +1,7 @@
 zmodule environment # Sets sane Zsh built-in environment options.
 zmodule input # Applies correct bindkeys for input events.
-zmodule utility # Utility aliases and functions. Adds colour to ls, grep and less.
-# zmodule git-info # Exposes git repository status information to prompts.
+#zmodule utility # Utility aliases and functions. Adds colour to ls, grep and less.
+#zmodule git-info # Exposes git repository status information to prompts.
 
 # zmodule ssh # Provides a convenient way to load ssh-agent.
 # zmodule termtitle # Sets a custom terminal title.
