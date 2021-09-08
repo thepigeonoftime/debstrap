@@ -45,3 +45,6 @@ alias nmux="tmux rename-session -t"
 alias mux="tmux new-session -s"
 alias rmux="pgrep tmux &> /dev/null || (tmux new-session -d -s restore 'tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && tmux kill-session -t restore' &)"
 
+
+# svn 
+alias svnlog="svn log | svn-fancy-log | less -r"
