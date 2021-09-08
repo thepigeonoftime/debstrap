@@ -9,7 +9,7 @@ rl() { readlink -f $1 }
 sz() { du -sh "${@}" | sort -h }
 
 # find
-f() { find ./ -name \*$1\* 2&> /dev/null; }
+f() { find ./ -iname \*$1\* 2&> /dev/null; }
 fcolor() { find ./ -iname \*$1\* 2&> /dev/null; }
 fdir() { find ./ -type d -iname \*$1\* 2&> /dev/null; }
 fvim() { find ./ -iname \*$1\* 2&> /dev/null | xargs -o nvim; } 
