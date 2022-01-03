@@ -19,7 +19,8 @@ alias cd-="popd"
 #alias mv="mva -g"
 
 # ls
-alias l="ls -la --color=auto"
+alias l="ls -lh --color=auto"
+alias ll="ls -lah --color=auto"
 #alias l="exa -la --group-directories-first"
 #alias lt="exa -lasnew --group-directories-first"
 
